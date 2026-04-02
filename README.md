@@ -80,7 +80,7 @@ The skill runs a 7-step pipeline on your repo:
 └─────────────────────────────────────────────────────┘
 ```
 
-Step 5 chains into the [`humanise-text`](https://github.com/199-biotechnologies) skill automatically -- every README passes through de-slopping before it ships.
+Step 5 chains into the [`humanise-text`](https://github.com/199-biotechnologies/humanise-text-skill) skill automatically -- every README passes through de-slopping before it ships.
 
 ## Features
 
@@ -90,7 +90,7 @@ Step 5 chains into the [`humanise-text`](https://github.com/199-biotechnologies)
 | **SEO-optimized headers** | Places target keywords in H1/H2 for GitHub search, Google, and LLM discoverability |
 | **Metadata optimization** | Writes a punchy description under 120 chars + 10-20 topic tags |
 | **Badge system** | Adds consistent `for-the-badge` shields with star count, follow CTA, license, and more |
-| **AI de-slopping** | Chains into `humanise-text` to strip words like "leverage", "seamlessly", "robust" |
+| **AI de-slopping** | Chains into [`humanise-text`](https://github.com/199-biotechnologies/humanise-text-skill) to strip words like "leverage", "seamlessly", "robust" |
 | **Before/After tables** | Shows concrete comparisons that convert visitors into stargazers |
 | **Author attribution** | Consistent footer with creator, company, and social links |
 | **Extras** | Adds MIT LICENSE and CONTRIBUTING.md if missing |
@@ -103,6 +103,21 @@ github-optimization-skill/
 ├── README.md          # You're reading it
 ├── LICENSE            # MIT
 └── CONTRIBUTING.md    # How to contribute
+```
+
+## Dependencies
+
+This skill chains into one other skill during execution:
+
+| Skill | Purpose | Repo |
+|---|---|---|
+| **humanise-text** | Strips AI writing patterns from all README prose before publishing | [`199-biotechnologies/humanise-text-skill`](https://github.com/199-biotechnologies/humanise-text-skill) |
+
+Install both for the full pipeline:
+
+```bash
+git clone https://github.com/199-biotechnologies/humanise-text-skill.git \
+  ~/.claude/skills/humanise-text
 ```
 
 ## Writing Rules the Skill Enforces
